@@ -24,7 +24,7 @@
     "start": "electron ."
   },
   "dependencies": {
-    "stencila-ui": "stencila/ui#kaikoura"
+    "stencila-ui": "stencila/stencila#master"
   },
   "devDependencies": {
     "electron": "1.6.2",

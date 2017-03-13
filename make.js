@@ -5,7 +5,7 @@ var fs = require('fs')
 
 function _copyAssets() {
   b.copy('./src', './app')
-  b.copy('./node_modules/stencila-ui/build', './app/stencila-ui')
+  b.copy('./node_modules/stencila/build', './app/stencila')
 }
 
 b.task('clean', () => {

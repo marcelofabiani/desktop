@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Stencila Desktop</title>
+  <title>Document Editor</title>
   <link href="stencila/stencila.css" rel="stylesheet" type="text/css">
 
   <!-- Dependencies -->
@@ -12,22 +12,14 @@
   <script type="text/javascript" src="stencila/katex/katex.min.js"></script>
   <script type="text/javascript" src="stencila/stencila.js"></script>
   <script>
-    const { MemoryBackend, Dashboard } = window.stencila
+    const { DocumentPage, MemoryBackend, getQueryStringParam } = window.stencila
     let stubBackend = new MemoryBackend()
 
     window.addEventListener('load', () => {
-      Dashboard.mount({
-        backend: stubBackend,
-        resolveEditorURL: function(type, archiveURL) {
-          let editorURL
-          if (type === 'document') {
-            editorURL = "document.html"
-          } else {
-            editorURL = "sheet.html"
-          }
-          editorURL += '?archiveURL='+encodeURIComponent(archiveURL)
-          return editorURL
-        }
+      console.info('Loading...', getQueryStringParam('archiveURL'))
+      DocumentPage.mount({
+        backend: new Backend(),
+        archiveURL: 'http://github.com/stencila/..adsfasdf.md' getQueryStringParam('archiveURL') || '/examples/kitchen-sink'
       }, window.document.body)
     })
   </script>
